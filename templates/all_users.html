@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FitBuddy Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="container wide">
+
+    <nav>
+
+        <a
+            href="/"
+            class="brand-link"
+        >
+            FitBuddy
+        </a>
+
+        <a href="/docs">
+            API docs
+        </a>
+
+    </nav>
+
+
+    <div class="card">
+
+        <div class="section-head">
+
+            <div>
+
+                <span class="eyebrow">
+                    LOCAL ADMIN / COACH VIEW
+                </span>
+
+                <h1>
+                    All users & plans
+                </h1>
+
+            </div>
+
+
+            <span class="badge">
+
+                {{ users|length }}
+                USERS
+
+            </span>
+
+        </div>
+
+
+        {% if users %}
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            User
+                        </th>
+
+                        <th>
+                            Profile
+                        </th>
+
+                        <th>
+                            Goal
+                        </th>
+
+                        <th>
+                            Original plan
+                        </th>
+
+                        <th>
+                            Updated plan
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for user in users %}
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                {{ user.username }}
+                            </strong>
+
+                            <br>
+
+                            <small>
+                                {{ user.user_id }}
+                            </small>
+
+                        </td>
+
+
+                        <td>
+
+                            {{ user.age }} yrs
+
+                            <br>
+
+                            {{ user.weight }} kg
+
+                            <br>
+
+                            {{ user.intensity|title }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ user.goal|title }}
+
+                        </td>
+
+
+                        <td>
+
+                        {% for plan in user.plans %}
+
+                            <details>
+
+                                <summary>
+                                    Plan #{{ plan.id }}
+                                </summary>
+
+                                <pre class="mini-plan">{{ plan.original_plan }}</pre>
+
+                            </details>
+
+                        {% endfor %}
+
+                        </td>
+
+
+                        <td>
+
+                        {% for plan in user.plans %}
+
+                            {% if plan.updated_plan %}
+
+                            <details open>
+
+                                <summary>
+                                    Updated
+                                </summary>
+
+                                <pre class="mini-plan">{{ plan.updated_plan }}</pre>
+
+                                <p>
+
+                                    <strong>
+                                        Feedback:
+                                    </strong>
+
+                                    {{ plan.feedback }}
+
+                                </p>
+
+                            </details>
+
+                            {% else %}
+
+                            <span class="muted">
+                                No update yet
+                            </span>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                        </td>
+
+
+                        <td>
+
+                            <form
+                                method="post"
+                                action="/admin/users/{{ user.user_id }}/delete"
+                                onsubmit="return confirm('Delete this user and all saved plans?')"
+                            >
+
+                                <button
+                                    class="button danger"
+                                    type="submit"
+                                >
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <p class="muted">
+
+            No users have generated a plan yet.
+
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <p class="small-note">
+
+        This dashboard follows the project documentation's
+        local admin concept. Add real authentication and
+        authorization before exposing it publicly.
+
+    </p>
+
+</main>
+
+</body>
+
+</html>

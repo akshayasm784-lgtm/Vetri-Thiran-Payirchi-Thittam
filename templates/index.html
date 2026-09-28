@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        FitBuddy — AI Fitness Planner
+    </title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body class="landing">
+
+    <main class="card form-card">
+
+        <div class="brand">
+
+            <span class="brand-mark">
+                FB
+            </span>
+
+            <div>
+
+                <h1>
+                    FitBuddy
+                </h1>
+
+                <p>
+                    AI-powered fitness planning
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+            Build your 7-day plan
+        </h2>
+
+
+        <p class="muted">
+
+            Enter your profile and let Gemini create
+            a practical workout routine plus a
+            nutrition/recovery tip.
+
+        </p>
+
+
+        <form method="post" action="/generate-workout" class="grid-form">
+
+            <label>
+
+                Name
+
+                <input name="username" required minlength="2" maxlength="120" placeholder="Your name">
+
+            </label>
+
+
+            <label>
+
+                User ID
+
+                <input name="user_id" required pattern="[A-Za-z0-9_\-]+" maxlength="80" placeholder="e.g. fit001">
+
+            </label>
+
+
+            <label>
+
+                Age
+
+                <input name="age" type="number" min="13" max="100" required>
+
+            </label>
+
+
+            <label>
+
+                Weight (kg)
+
+                <input name="weight" type="number" min="20" max="500" step="0.1" required>
+
+            </label>
+
+
+            <label>
+
+                Fitness goal
+
+                <select name="goal" required>
+
+                    <option value="weight loss">
+                        Weight loss
+                    </option>
+
+                    <option value="muscle gain">
+                        Muscle gain
+                    </option>
+
+                    <option value="general wellness">
+                        General wellness
+                    </option>
+
+                    <option value="flexibility">
+                        Flexibility
+                    </option>
+
+                    <option value="endurance">
+                        Endurance
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Workout intensity
+
+                <select name="intensity" required>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option value="medium" selected>
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button class="button primary full" type="submit">
+                Generate 7-Day Plan
+            </button>
+
+        </form>
+
+
+        <div class="links">
+
+            <a href="/view-all-users">
+                Admin / coach dashboard
+            </a>
+
+            <a href="/docs">
+                API docs
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

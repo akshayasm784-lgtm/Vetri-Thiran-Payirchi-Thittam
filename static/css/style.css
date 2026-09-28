@@ -1,0 +1,561 @@
+:root {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #eef2f6;
+
+    background: #0b1016;
+
+    line-height: 1.5;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            #173528 0,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 20%,
+            #22233c 0,
+            transparent 30%
+        ),
+        #0b1016;
+}
+
+
+a {
+    color: #9ae6b4;
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.container {
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        0
+        60px;
+}
+
+
+.wide {
+    width: min(1450px, 95%);
+}
+
+
+nav {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+
+.brand-link {
+    font-weight: 900;
+
+    font-size: 1.25rem;
+
+    color: #fff;
+}
+
+
+.card {
+    background:
+        rgba(20, 28, 37, 0.9);
+
+    border:
+        1px solid
+        #263241;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.25);
+
+    padding: 28px;
+}
+
+
+.landing {
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 24px;
+}
+
+
+.form-card {
+    width: min(760px, 100%);
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.brand h1 {
+    margin: 0;
+
+    font-size: 1.5rem;
+}
+
+
+.brand p {
+    margin: 0;
+
+    color: #91a0af;
+}
+
+
+.brand-mark {
+    display: grid;
+
+    place-items: center;
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 13px;
+
+    background: #7ee2a8;
+
+    color: #08110c;
+
+    font-weight: 900;
+}
+
+
+.form-card h2 {
+    font-size: 2rem;
+
+    margin:
+        12px
+        0
+        4px;
+}
+
+
+.muted,
+.small-note {
+    color: #9aa8b6;
+}
+
+
+.grid-form {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 16px;
+
+    margin-top: 22px;
+}
+
+
+label {
+    display: grid;
+
+    gap: 7px;
+
+    font-weight: 700;
+
+    font-size: 0.92rem;
+}
+
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        #334154;
+
+    background: #0d141c;
+
+    color: #fff;
+
+    border-radius: 12px;
+
+    padding: 12px 13px;
+
+    font: inherit;
+
+    outline: none;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #7ee2a8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(126, 226, 168, 0.12);
+}
+
+
+textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+.button {
+    border: 0;
+
+    border-radius: 11px;
+
+    padding:
+        11px
+        16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    font: inherit;
+}
+
+
+.primary {
+    background: #7ee2a8;
+
+    color: #07110b;
+}
+
+
+.danger {
+    background: #51242b;
+
+    color: #ffd9de;
+}
+
+
+.full {
+    grid-column: 1 / -1;
+}
+
+
+.links {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 18px;
+
+    font-size: 0.9rem;
+}
+
+
+.profile {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.profile h1 {
+    margin:
+        4px
+        0
+        0;
+}
+
+
+.eyebrow {
+    letter-spacing: 0.12em;
+
+    font-size: 0.75rem;
+
+    color: #7ee2a8;
+
+    font-weight: 900;
+}
+
+
+.chips {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+}
+
+
+.chips span,
+.badge {
+    border:
+        1px solid
+        #334154;
+
+    border-radius: 999px;
+
+    padding:
+        6px
+        10px;
+
+    color: #c9d3dc;
+
+    font-size: 0.8rem;
+}
+
+
+.two-col {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr;
+
+    gap: 20px;
+}
+
+
+.section-head {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+.section-head h2,
+.tip h2,
+.feedback h2 {
+    margin-top: 0;
+}
+
+
+.plan {
+    white-space: pre-wrap;
+
+    font: inherit;
+
+    line-height: 1.65;
+
+    color: #e8edf2;
+
+    max-height: 850px;
+
+    overflow: auto;
+}
+
+
+.tip p {
+    color: #d6dee6;
+}
+
+
+.disclaimer {
+    font-size: 0.78rem;
+
+    color: #8997a5 !important;
+
+    border-top:
+        1px solid
+        #293543;
+
+    padding-top: 14px;
+
+    margin-top: 22px;
+}
+
+
+.feedback {
+    margin-top: 20px;
+}
+
+
+.feedback form {
+    display: grid;
+
+    gap: 12px;
+}
+
+
+.back {
+    display: inline-block;
+
+    margin-top: 20px;
+}
+
+
+.alert {
+    padding:
+        13px
+        16px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.success {
+    background: #123c27;
+
+    border:
+        1px solid
+        #266d48;
+
+    color: #d6ffe4;
+}
+
+
+.table-wrap {
+    overflow: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1100px;
+}
+
+
+th,
+td {
+    text-align: left;
+
+    vertical-align: top;
+
+    padding: 14px;
+
+    border-bottom:
+        1px solid
+        #293543;
+}
+
+
+th {
+    color: #9aa8b6;
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+
+.mini-plan {
+    white-space: pre-wrap;
+
+    max-width: 430px;
+
+    max-height: 260px;
+
+    overflow: auto;
+
+    color: #cdd6df;
+
+    font: inherit;
+
+    font-size: 0.82rem;
+}
+
+
+.error-card {
+    width: min(650px, 92%);
+
+    margin: 10vh auto;
+}
+
+
+.small-note {
+    font-size: 0.82rem;
+}
+
+
+@media (max-width: 800px) {
+
+    .grid-form,
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile {
+        display: block;
+    }
+
+
+    .chips {
+        justify-content: flex-start;
+
+        margin-top: 14px;
+    }
+
+
+    .full {
+        grid-column: auto;
+    }
+
+
+    .links {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+}

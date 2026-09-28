@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Your FitBuddy Plan
+    </title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+        <nav>
+
+            <a href="/" class="brand-link">
+                FitBuddy
+            </a>
+
+            <a href="/view-all-users">
+                Dashboard
+            </a>
+
+        </nav>
+
+
+        {% if message %}
+
+        <div class="alert success">
+
+            {{ message }}
+
+        </div>
+
+        {% endif %}
+
+
+        <section class="card profile">
+
+            <div>
+
+                <span class="eyebrow">
+                    PERSONALIZED PLAN
+                </span>
+
+                <h1>
+                    {{ user.username }}'s FitBuddy plan
+                </h1>
+
+            </div>
+
+
+            <div class="chips">
+
+                <span>
+                    {{ user.goal|title }}
+                </span>
+
+                <span>
+                    {{ user.intensity|title }} intensity
+                </span>
+
+                <span>
+                    {{ user.weight }} kg
+                </span>
+
+                <span>
+                    Age {{ user.age }}
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <section class="two-col">
+
+
+            <article class="card">
+
+                <div class="section-head">
+
+                    <h2>
+                        Workout plan
+                    </h2>
+
+                    <span class="badge">
+                        7 DAYS
+                    </span>
+
+                </div>
+
+
+                <pre class="plan">{{ plan.updated_plan or plan.original_plan }}</pre>
+
+            </article>
+
+
+            <aside class="card tip">
+
+                <h2>
+                    Nutrition / recovery tip
+                </h2>
+
+                <p>
+                    {{ plan.updated_nutrition_tip or plan.nutrition_tip }}
+                </p>
+
+
+                <p class="disclaimer">
+
+                    General wellness guidance only.
+                    Stop exercise if you experience pain,
+                    dizziness, or unusual symptoms and seek
+                    appropriate professional advice.
+
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <section class="card feedback">
+
+            <h2>
+                Refine your plan
+            </h2>
+
+
+            <p class="muted">
+
+                Examples:
+                "more cardio",
+                "include another rest day",
+                or
+                "make day 4 lower impact".
+
+            </p>
+
+
+            <form method="post" action="/submit-feedback">
+
+                <input type="hidden" name="user_id" value="{{ user.user_id }}">
+
+
+                <textarea name="feedback" required maxlength="1200" minlength="3"
+                    placeholder="What would you like to change?"></textarea>
+
+
+                <button class="button primary" type="submit">
+                    Update Plan with AI
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <a class="back" href="/">
+            ← Create another plan
+        </a>
+
+    </main>
+
+
+    <script src="/static/css/js/app.js"></script>
+
+</body>
+
+</html>
